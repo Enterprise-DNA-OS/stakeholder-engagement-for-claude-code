@@ -1,11 +1,43 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "consultation-report",
+    "title": "Consultation evidence report: private draft",
+    "for_each": "select id,name from projects order by name",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Scope",
+        "sql": "select name,owner,purpose from projects where id=$1"
+      },
+      {
+        "title": "Engagement record",
+        "sql": "select s.name as stakeholder,i.occurred_on,i.channel,i.note,i.actor from interactions i join stakeholders s on s.id=i.stakeholder_id where i.project_id=$1 order by i.occurred_on"
+      },
+      {
+        "title": "Issues and responses",
+        "sql": "select stakeholder,issue,severity,status,resolution from issue_register where project_id=$1 order by due_on"
+      },
+      {
+        "title": "Commitments",
+        "sql": "select stakeholder,commitment,owner,due_on,status,evidence from commitment_register where project_id=$1 order by due_on"
+      }
+    ]
+  },
+  {
+    "name": "commitment-letter",
+    "title": "Commitment follow-up: private draft",
+    "for_each": "select id,name from stakeholders where exists(select 1 from commitments c where c.stakeholder_id=stakeholders.id and status='open') order by name",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Recipient record",
+        "sql": "select name,organisation from stakeholders where id=$1",
+        "note": "Review before sharing. This document has not been sent."
+      },
+      {
+        "title": "Agreed commitments needing follow-up",
+        "sql": "select name,owner,due_on from commitments where stakeholder_id=$1 and status='open' order by due_on"
+      }
     ]
   }
 ]

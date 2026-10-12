@@ -1,43 +1,55 @@
-# Stakeholder Engagement for Claude Code: operating instructions
+# Stakeholder Engagement for Claude Code
 
-This file is the brain. Claude Code reads it at the start of every session. It says who this is for, how work gets done, and the one right way to do each recurring job.
+For consultation teams recording who they spoke to, what concerns were raised and what they promised. The seed is fictional. Set your business and operator in brand.json and use --actor on every write.
 
-## Who this is for
+## Rules
 
-- **Business:** [YOUR BUSINESS]
-- **Operator:** [YOUR NAME], [your role]
-- **What matters most:** [the one or two outcomes you care about]
+Read CLI records before answering. Never invent sentiment, consent, meeting notes, completion evidence or dates. --actor is traceability, not authentication. This is a trusted local operator tool; shared hosting requires separately reviewed access roles. Never send email, publish, delete or contact a stakeholder. Keep drafts private. The database is the source of truth.
 
-Fill this in once. A worker with context knows. A worker without it guesses.
+## Recurring work
 
-## How to work
+| Request | Command |
+| --- | --- |
+| Review consultation scopes and owners | /projects |
+| Review stakeholders and engagement coverage | /stakeholders |
+| Read communication history | /interactions |
+| Review all issue records | /issues |
+| Review every promise | /commitments |
+| Prepare the fortnight commitment chase | /commitments-due |
+| Run the open issue review | /issues-review |
+| Find influential stakeholders who have gone quiet | /engagement-gaps |
+| Balance outstanding promises by owner | /owner-load |
+| Find open issues with no outstanding commitment | /unanswered-issues |
+| Review the most recent negative feedback | /negative-follow-up |
+| Compare the engagement week across projects | /project-summary |
+| Review missing collection purpose and retention review dates | /privacy-review |
+| Check purpose, retention and notice evidence | /compliance |
+| Read the overdue promise and high-risk issue list | /attention |
+| Read recent recorded actions | /history |
+| List available commands and options | /help |
+| Read one complete project | /project |
+| Read one stakeholder timeline | /stakeholder |
+| Find a stakeholder by name or organisation | /search |
+| Create a project, stakeholder, interaction, issue or commitment | /add |
+| Record an interaction that already happened | /log |
+| Record completion evidence for a commitment | /fulfil |
+| Resolve an issue after checking linked commitments | /resolve |
+| Record the reviewed collection purpose, notice evidence and retention review date | /privacy-update |
+| Import mapped Jambo CSV reports atomically | /import |
+| Write a private JSON archive | /export |
+| Write the weekly review as a private draft | /weekly-review |
+| Draft the project consultation brief | /draft-brief |
+| Change fields or process | /customise |
+| Add a report | /new-view |
 
-1. **Take a brief, not a script.** The operator describes the outcome. You run the right command and present the answer.
-2. **Read before you write.** Before drafting anything about a record, read its full history first.
-3. **Plain language.** Short sentences. No filler. Numbers in tables.
-4. **Silent success, loud problems.** No play-by-play. Say what broke and what you did about it.
-5. **Stop at the line.** Anything that sends, deletes, or faces a customer waits for a yes in this session.
+## Operating the records
 
-## Routing table: one right way for each recurring job
+Run npm run engagement -- help for arguments. Partial IDs and case-insensitive names resolve; ambiguous matches list candidates and fail. Writes require --actor. Dates are YYYY-MM-DD. A commitment needs evidence to be fulfilled. Resolve an issue only after linked promises are fulfilled. Source statuses stay in import snapshots and never become local approvals.
 
-| When the operator asks for... | Use this |
-|---|---|
-| <!-- TODO(author): one row per slash command --> | `/...` |
+The weekly review uses project-summary, attention, engagement-gaps and compliance. Retention review dates and the 30-day contact threshold are local process choices, not legal deadlines. Assess privacy obligations with a qualified person. Do not place personal records in prompts or files outside the approved environment.
 
-If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) and then propose a new command for it.
+## Files
 
-## Hard rules
+One CLI: scripts/engagement.mjs. Migration: supabase/migrations. Commands: .claude/commands. Documents: documents.json. Views: views.json. Private outputs: drafts, exports, views, docs-out. Agent use and database hosting are separately arranged.
 
-- Never send email or messages from here. Draft to `drafts/`, a person sends.
-- Never delete records without an explicit yes in this session. Prefer marking closed or archived.
-- Never invent a record. If a name is ambiguous, list the candidates and ask.
-- The database is the source of truth. If the answer is not in it, say so.
-
-## Where things live
-
-- `scripts/` the CLI. `scripts/lib/db.mjs` picks `DATABASE_URL` (Postgres, Supabase) or the embedded database in `.data/`.
-- `supabase/migrations/` the schema, plain SQL. `npm run migrate` applies it.
-- `.claude/commands/` the slash commands. Add one every time the same ask comes twice.
-- `docs/` the thesis and the guide for moving off Jambo.
-
-Built by Enterprise DNA. Installed and run for you as part of Omni: https://enterprisedna.co/omni/instead-of/jambo
+Omni by Enterprise DNA can install, customise and run your version: https://enterprisedna.co/omni/instead-of/jambo

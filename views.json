@@ -1,13 +1,31 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Stakeholder Engagement for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Engagement week",
+    "subtitle": "Internal review, fictional data until replaced",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Commitments due",
+        "sql": "select project,stakeholder,commitment,owner,due_on,overdue from commitment_register where status='open' order by due_on"
+      },
+      {
+        "title": "Open issues",
+        "sql": "select project,stakeholder,issue,severity,open_promises from issue_register where status='open' order by due_on"
+      },
+      {
+        "title": "Engagement gaps",
+        "sql": "select project,stakeholder,owner,last_contact from engagement_coverage where influence>=4 and (last_contact is null or last_contact<current_date-30) order by stakeholder"
+      }
+    ]
+  },
+  {
+    "name": "privacy",
+    "title": "Privacy record review",
+    "sections": [
+      {
+        "title": "Collection and retention prompts",
+        "sql": "select * from privacy_checks order by stakeholder,rule",
+        "note": "These checks prompt a human review. They do not establish legal compliance."
       }
     ]
   }

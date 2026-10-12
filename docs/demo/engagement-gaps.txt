@@ -1,0 +1,4 @@
+  project                      stakeholder          owner  influence  last_contact  open_issues  overdue_promises
+  ---------------------------  -------------------  -----  ---------  ------------  -----------  ----------------
+  River crossing consultation  River Walkers Group  Alex   4                        0            0               
+  Harbour access consultation  Quayside Workshop    Alex   4          2026-08-28    1            0

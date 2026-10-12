@@ -1,0 +1,4 @@
+  kind        project                      stakeholder              item                         owner  due_on    
+  ----------  ---------------------------  -----------------------  ---------------------------  -----  ----------
+  issue       Harbour access consultation  Harbour Residents Group  Access during works          Mara   2026-10-09
+  commitment  Harbour access consultation  Harbour Residents Group  Provide written access plan  Mara   2026-10-10

@@ -1,115 +1,118 @@
-<h1 align="center">Stakeholder Engagement for Claude Code</h1>
+# Stakeholder Engagement for Claude Code
 
-<p align="center">
-  <strong>The open-source stakeholder engagement system that is just a database and Claude Code.</strong>
-</p>
+Keep your consultation history, unresolved concerns and promises in a database you own. Know who needs a follow-up and what evidence belongs in the project report.
 
-<p align="center">
-  Created by <a href="https://www.enterprisedna.co"><strong>Enterprise DNA</strong></a>. Free and open source. Works with Claude Code, Codex, OpenCode or Cursor.
-</p>
+## Three ways to run it
 
-<!-- three-doors -->
-<table align="center">
-  <tr>
-    <td align="center"><strong>Do it yourself</strong><br/>Clone it, run it, own it. Free, MIT.<br/><a href="#quick-start">Quick start</a></td>
-    <td align="center"><strong>We customise it</strong><br/>Your fields, your rules, your Jambo data brought across.<br/><a href="https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=jambo">Book a call</a></td>
-    <td align="center"><strong>We run it for you</strong><br/>Installed, connected and operated inside Omni. Setup fee, then a retainer.<br/><a href="https://enterprisedna.co/omni/instead-of/jambo?utm_source=github&utm_medium=readme&utm_campaign=jambo">How it works</a></td>
-  </tr>
-</table>
+- **Do it yourself.** The MIT-licensed free version runs with Claude Code, Codex, OpenCode or Cursor. Arrange your own database hosting and agent usage. Map your Jambo CSV exports using the included manifest.
+- **We customise it.** Enterprise DNA brings your records across, adds your fields and consultation rules, and builds the screens or connections your team needs. One setup fee, then an agreed retainer for ongoing work.
+- **We run it for you.** Omni by Enterprise DNA installs, connects, backs up and operates your version. One setup fee, then a monthly retainer. [Book a call](https://enterprisedna.co/omni/book?offer=replace-software&utm_campaign=jambo&utm_medium=readme).
 
-<p align="center">
-  <a href="#what-is-this">What is this</a> &bull;
-  <a href="#why-no-front-end">Why no front end</a> &bull;
-  <a href="#quick-start">Quick start</a> &bull;
-  <a href="#the-commands">Commands</a> &bull;
-  <a href="#instead-of-jambo">Instead of Jambo</a> &bull;
-  <a href="#want-it-installed-and-run-for-you">Installed for you</a> &bull;
-  <a href="#license">License</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Node-20+-339933?style=flat-square" alt="Node 20+" />
-  <img src="https://img.shields.io/badge/PostgreSQL-any-336791?style=flat-square" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/PGlite-embedded-3ecf8e?style=flat-square" alt="PGlite" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" />
-</p>
-
----
-
-## What is this
-
-Stakeholder Engagement for Claude Code does the job you pay Jambo for, as a Postgres database and a set of agent commands. There is no web front end. You open the folder in [Claude Code](https://claude.com/claude-code) (or Codex, OpenCode, Cursor: see `AGENTS.md`) and ask for what you want in plain language. It runs the right query, and it can answer questions the Jambo dashboard cannot.
-
-<!-- TODO(author): the annual bill. One sentence: what a 10 to 50 person business typically pays Jambo per year, all in, with a source. -->
-
-Want the same thing with a web front end, or built on a different stack? That is a customisation, and it is exactly what Enterprise DNA does: [book a call](https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=jambo).
-
-<!-- TODO(author): two or three sentences on what this specific product covers and who it is for. -->
-
-## Why no front end
-
-- The front end was only ever there because the database was hard to talk to. That is no longer true.
-- Your data sits in plain Postgres tables you own. Any tool can read them. No export, no lock-in.
-- No seats, no tiers, no add-ons. Read [docs/why-no-front-end.md](docs/why-no-front-end.md) for the honest trade-offs too.
-
-## Quick start
-
-Sixty seconds, no database install (an embedded Postgres runs inside Node):
+## Try fictional consultation data
 
 ```bash
-git clone https://github.com/Enterprise-DNA-OS/stakeholder-engagement-for-claude-code.git
-cd stakeholder-engagement-for-claude-code
 npm install
 npm run demo
+npm run engagement -- commitments-due
+npm run engagement -- engagement-gaps --json
+npm run view
+npm run docs
 ```
 
-Then open the folder in Claude Code and type a slash command. <!-- TODO(author): name the first command to try. -->
+Requires Node 20 or later. With DATABASE_URL unset, PGlite stores records in .data/db. Set DATABASE_URL to use PostgreSQL. The same migrations run on both. Run one embedded writer at a time. npm run demo contains fictional groups and projects; do not seed a real installation.
 
-### Use it with your own Postgres or Supabase
+## The engagement week
 
-Copy `.env.example` to `.env`, set `DATABASE_URL`, then `npm run migrate`. Same commands, shared data, no per-seat fee.
+Review upcoming promises, triage issues, plan contact with groups who have gone quiet, record meetings and calls, then draft the consultation report. Completing a promise needs evidence. Resolving an issue requires all linked promises to be fulfilled. Recording an interaction never sends a message. Sentiment is explicitly entered, never guessed from a person or group.
 
-## The commands
+Read before writing. Supply --actor for every write. It records the operator's stated identity, not authentication. Partial IDs and case-insensitive names work; ambiguous names list the candidates and exit with an error. Dates use YYYY-MM-DD.
 
-<!-- TODO(author): a table of the slash commands in .claude/commands and what each one does. -->
+- /projects
+- /stakeholders
+- /interactions
+- /issues
+- /commitments
+- /commitments-due
+- /issues-review
+- /engagement-gaps
+- /owner-load
+- /unanswered-issues
+- /negative-follow-up
+- /project-summary
+- /privacy-review
+- /compliance
+- /attention
+- /history
+- /help
+- /project
+- /stakeholder
+- /search
+- /add
+- /log
+- /fulfil
+- /resolve
+- /privacy-update
+- /import
+- /export
+- /weekly-review
+- /draft-brief
+- /customise
+- /new-view
 
-| Command | What it does |
-|---|---|
-| `/...` | ... |
+There are 29 CLI commands and 31 slash-command recipes. npm run engagement -- help lists arguments. /customise and /new-view guide a coding agent through additive changes; they are not CLI mutations.
 
-## Instead of jambo
+## Ten questions your records can answer today
 
-<!-- TODO(author): how to bring data across from Jambo; link docs/replace-jambo.md -->
+Jambo also offers configurable reporting. These are useful questions this implementation answers, not a claim that Jambo cannot answer equivalent questions.
 
-## Architecture
+- Which promises are due in the next fortnight? `commitments-due`
+- Which high-influence stakeholders have had no recent contact? `engagement-gaps`
+- Which high-risk issues remain open? `issues-review`
+- Which owners have the most overdue promises? `owner-load`
+- Which open issues have no outstanding promise attached? `unanswered-issues`
+- Whose latest recorded feedback was negative? `negative-follow-up`
+- Which projects have overdue promises and recent engagement? `project-summary`
+- Which records need purpose or retention review? `privacy-review`
+- Which stakeholder records lack notice evidence? `compliance`
+- Who recorded the most recent changes? `history`
 
+## Your first hour: ten things to ask for
+
+1. Put our business name, logo and colours on the reports.
+2. Show every overdue promise and who owns it.
+3. Find influential stakeholders with no recent contact.
+4. Explain the high-risk issue queue.
+5. Record a call that happened, with the date and agreed follow-up.
+6. Fulfil a promise using the actual completion evidence.
+7. Draft our weekly consultation review.
+8. Add our consultation phase field through a migration.
+9. Add a read-only report for our project board.
+10. Test our Jambo export mapping before saving anything.
+
+## Bring your Jambo records
+
+```bash
+npm run engagement -- import jambo --manifest=examples/jambo-manifest.json --actor="Migration operator" --dry-run
 ```
-stakeholder-engagement-for-claude-code/
-  CLAUDE.md                 how the operator wants this run (routing table + house rules)
-  AGENTS.md                 the same, for Codex / OpenCode / Cursor / Gemini CLI
-  .claude/commands/         the slash commands
-  scripts/                  the CLI the commands drive
-  scripts/lib/db.mjs        one adapter: DATABASE_URL (pg) or embedded PGlite
-  supabase/migrations/      plain SQL schema
-  supabase/seed.sql         demo data
-  docs/                     the thesis and the migration guide
-```
 
-## Built for coding agents
+This example targets the fictional demo. For real data, migrate an empty database, create your project, and map your own exports in a private manifest. The [switch guide](docs/replace-jambo.md) explains the four supported record types and mapping contract. The one-command import is available after mapping your export headings and relationship identifiers. Original Jambo report headings are configurable; the included CSV files are fictional mapping fixtures.
 
-The database, CLI and command recipes work with Claude Code, Codex, OpenCode or Cursor. Ask your coding agent for a new command and have it implement and test the change against the same records.
+The batch is atomic. Dry runs save nothing. Identical imports skip. Changed source records, duplicate identifiers and missing relationships fail for explicit reconciliation. Imported Closed and Completed statuses remain source snapshots, not local evidence. Attachments, permissions, interactive maps and historical activity logs need separate migration design.
 
-## Contributing
+## Documents and views
 
-Issues and pull requests are welcome. Keep the shape: plain SQL, a small CLI, a slash command per recurring job, no front end.
+npm run docs writes private consultation evidence reports and commitment follow-up drafts. npm run view writes the engagement week and privacy review as read-only HTML. Set your business identity in brand.json. Nothing sends or publishes. Outputs remain in docs-out, views and drafts. [Why no front end](docs/why-no-front-end.md).
 
-## Want it installed and run for you?
+## Privacy record review
 
-Enterprise DNA installs Stakeholder Engagement for Claude Code for your business, migrates your Jambo data, connects it to the rest of your tools, and runs it for you as part of **Omni**, our managed Command Center. One setup fee, then a monthly retainer.
+The compliance command prompts review of missing collection purpose, retention review dates and notice evidence. [The cited rules and limits](docs/compliance.md) cover NZ Privacy Act IPP1, IPP9 and the indirect collection notice rule IPP3A. A filled field does not prove legal compliance. Retention dates and contact intervals are operator choices, not statutory deadlines.
 
-- Book a call: [enterprisedna.co/omni/book](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=jambo)
-- Read more: [enterprisedna.co/omni/instead-of/jambo](https://enterprisedna.co/omni/instead-of/jambo?utm_source=github&utm_medium=readme&utm_campaign=jambo)
+Row security is enabled and public access revoked. Owner credentials still have broad access. A shared installation requires reviewed roles and access policies, protected storage, data residency decisions and approved agent access. Local operation history is not tamper-proof. The free version provides no public intake form, automatic mailbox sync, mapping service or per-user login.
 
-## License
+## Validation and archives
 
-MIT. Copyright (c) 2026 Enterprise DNA.
+npm test creates a disposable database and exercises every CLI command, migrations, seed repeats, closure guards, project isolation, privacy prompts, atomic imports, mapping, repeated imports, invalid data, backups, private drafts and escaped HTML. GitHub CI runs Node 20 and 22 on Windows and Linux plus a PostgreSQL service. Local PGlite results are reported separately from remote CI.
+
+npm run engagement -- export --out=exports/backup.json writes all records and operation history to a private JSON file without overwriting an existing one. It is an archive for reviewed recovery, not a Jambo import or automatic restore tool. Test a recovery procedure before relying on your backup process.
+
+MIT licence. Independent of Jambo. Names belong to their owners. [Research and six-factor scoring](docs/research.md).

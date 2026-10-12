@@ -1,0 +1,53 @@
+{
+  "project": "Harbour access consultation",
+  "files": [
+    {
+      "type": "stakeholder",
+      "file": "contacts.csv",
+      "columns": {
+        "source_id": "Contact ID",
+        "name": "Contact Name",
+        "organisation": "Organisation",
+        "owner": "Owner",
+        "influence": "Influence"
+      }
+    },
+    {
+      "type": "interaction",
+      "file": "communications.csv",
+      "columns": {
+        "source_id": "Communication ID",
+        "name": "Subject",
+        "stakeholder": "Contact ID",
+        "date": "Date",
+        "channel": "Channel",
+        "sentiment": "Sentiment",
+        "note": "Summary"
+      }
+    },
+    {
+      "type": "issue",
+      "file": "issues.csv",
+      "columns": {
+        "source_id": "Issue ID",
+        "name": "Title",
+        "stakeholder": "Contact ID",
+        "owner": "Owner",
+        "severity": "Severity",
+        "due": "Due Date"
+      }
+    },
+    {
+      "type": "commitment",
+      "file": "commitments.csv",
+      "columns": {
+        "source_id": "Commitment ID",
+        "name": "Title",
+        "stakeholder": "Contact ID",
+        "issue": "Issue ID",
+        "owner": "Owner",
+        "due": "Due Date"
+      }
+    }
+  ]
+}
