@@ -1,3 +1,7 @@
+---
+description: "Review consultation scopes and owners"
+---
+
 # Review consultation scopes and owners
 
 Read CLAUDE.md first. Run:

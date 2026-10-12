@@ -1,3 +1,7 @@
+---
+description: "Create a project, stakeholder, interaction, issue or commitment"
+---
+
 # Create a project, stakeholder, interaction, issue or commitment
 
 Read CLAUDE.md first. Run:

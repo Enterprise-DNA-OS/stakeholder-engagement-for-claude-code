@@ -1,3 +1,7 @@
+---
+description: "Prepare the fortnight commitment chase"
+---
+
 # Prepare the fortnight commitment chase
 
 Read CLAUDE.md first. Run:

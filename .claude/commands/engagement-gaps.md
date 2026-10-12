@@ -1,3 +1,7 @@
+---
+description: "Find influential stakeholders who have gone quiet"
+---
+
 # Find influential stakeholders who have gone quiet
 
 Read CLAUDE.md first. Run:

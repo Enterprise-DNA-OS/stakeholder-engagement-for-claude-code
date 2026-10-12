@@ -1,3 +1,7 @@
+---
+description: "Draft the project consultation brief"
+---
+
 # Draft the project consultation brief
 
 Read CLAUDE.md first. Run:

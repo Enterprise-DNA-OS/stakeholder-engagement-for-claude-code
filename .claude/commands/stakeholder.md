@@ -1,3 +1,7 @@
+---
+description: "Read one stakeholder timeline"
+---
+
 # Read one stakeholder timeline
 
 Read CLAUDE.md first. Run:

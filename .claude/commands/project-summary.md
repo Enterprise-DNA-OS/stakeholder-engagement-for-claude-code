@@ -1,3 +1,7 @@
+---
+description: "Compare the engagement week across projects"
+---
+
 # Compare the engagement week across projects
 
 Read CLAUDE.md first. Run:

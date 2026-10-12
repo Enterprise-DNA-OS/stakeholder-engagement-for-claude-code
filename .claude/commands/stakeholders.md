@@ -1,3 +1,7 @@
+---
+description: "Review stakeholders and engagement coverage"
+---
+
 # Review stakeholders and engagement coverage
 
 Read CLAUDE.md first. Run:

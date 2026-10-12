@@ -1,3 +1,7 @@
+---
+description: "Review missing collection purpose and retention review dates"
+---
+
 # Review missing collection purpose and retention review dates
 
 Read CLAUDE.md first. Run:

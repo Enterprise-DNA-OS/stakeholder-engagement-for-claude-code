@@ -1,3 +1,7 @@
+---
+description: "Read recent recorded actions"
+---
+
 # Read recent recorded actions
 
 Read CLAUDE.md first. Run:

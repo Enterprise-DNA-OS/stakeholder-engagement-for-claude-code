@@ -1,3 +1,7 @@
+---
+description: "Read the overdue promise and high-risk issue list"
+---
+
 # Read the overdue promise and high-risk issue list
 
 Read CLAUDE.md first. Run:

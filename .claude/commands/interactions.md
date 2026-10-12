@@ -1,3 +1,7 @@
+---
+description: "Read communication history"
+---
+
 # Read communication history
 
 Read CLAUDE.md first. Run:

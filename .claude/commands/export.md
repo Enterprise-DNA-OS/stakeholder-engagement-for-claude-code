@@ -1,3 +1,7 @@
+---
+description: "Write a private JSON archive"
+---
+
 # Write a private JSON archive
 
 Read CLAUDE.md first. Run:

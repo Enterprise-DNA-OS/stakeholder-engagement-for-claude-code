@@ -1,3 +1,7 @@
+---
+description: "Review every promise"
+---
+
 # Review every promise
 
 Read CLAUDE.md first. Run:

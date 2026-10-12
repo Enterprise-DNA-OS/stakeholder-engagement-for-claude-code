@@ -1,3 +1,7 @@
+---
+description: "List available commands and options"
+---
+
 # List available commands and options
 
 Read CLAUDE.md first. Run:

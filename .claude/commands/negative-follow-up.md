@@ -1,3 +1,7 @@
+---
+description: "Review the most recent negative feedback"
+---
+
 # Review the most recent negative feedback
 
 Read CLAUDE.md first. Run:

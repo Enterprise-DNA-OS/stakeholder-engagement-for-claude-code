@@ -1,3 +1,7 @@
+---
+description: "Run the open issue review"
+---
+
 # Run the open issue review
 
 Read CLAUDE.md first. Run:

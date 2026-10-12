@@ -1,3 +1,7 @@
+---
+description: "Review all issue records"
+---
+
 # Review all issue records
 
 Read CLAUDE.md first. Run:

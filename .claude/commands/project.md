@@ -1,3 +1,7 @@
+---
+description: "Read one complete project"
+---
+
 # Read one complete project
 
 Read CLAUDE.md first. Run:

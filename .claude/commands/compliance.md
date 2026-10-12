@@ -1,3 +1,7 @@
+---
+description: "Check purpose, retention and notice evidence"
+---
+
 # Check purpose, retention and notice evidence
 
 Read CLAUDE.md first. Run:

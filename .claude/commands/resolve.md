@@ -1,3 +1,7 @@
+---
+description: "Resolve an issue after checking linked commitments"
+---
+
 # Resolve an issue after checking linked commitments
 
 Read CLAUDE.md first. Run:

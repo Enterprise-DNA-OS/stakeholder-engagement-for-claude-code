@@ -1,3 +1,7 @@
+---
+description: "Import mapped Jambo CSV reports atomically"
+---
+
 # Import mapped Jambo CSV reports atomically
 
 Read CLAUDE.md first. Run:

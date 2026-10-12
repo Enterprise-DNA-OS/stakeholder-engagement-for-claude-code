@@ -1,3 +1,7 @@
+---
+description: "Record completion evidence for a commitment"
+---
+
 # Record completion evidence for a commitment
 
 Read CLAUDE.md first. Run:

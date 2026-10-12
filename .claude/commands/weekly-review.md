@@ -1,3 +1,7 @@
+---
+description: "Write the weekly review as a private draft"
+---
+
 # Write the weekly review as a private draft
 
 Read CLAUDE.md first. Run:

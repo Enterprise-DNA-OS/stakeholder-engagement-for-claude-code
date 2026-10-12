@@ -1,3 +1,7 @@
+---
+description: "Record the reviewed collection purpose, notice evidence and retention review date"
+---
+
 # Record the reviewed collection purpose, notice evidence and retention review date
 
 Read CLAUDE.md first. Run:

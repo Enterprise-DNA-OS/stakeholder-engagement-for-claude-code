@@ -1,3 +1,7 @@
+---
+description: "Find a stakeholder by name or organisation"
+---
+
 # Find a stakeholder by name or organisation
 
 Read CLAUDE.md first. Run:

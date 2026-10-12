@@ -1,3 +1,7 @@
+---
+description: "Record an interaction that already happened"
+---
+
 # Record an interaction that already happened
 
 Read CLAUDE.md first. Run:

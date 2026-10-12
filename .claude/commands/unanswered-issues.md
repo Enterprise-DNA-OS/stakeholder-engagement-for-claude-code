@@ -1,3 +1,7 @@
+---
+description: "Find open issues with no outstanding commitment"
+---
+
 # Find open issues with no outstanding commitment
 
 Read CLAUDE.md first. Run:

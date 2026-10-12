@@ -1,3 +1,7 @@
+---
+description: "Balance outstanding promises by owner"
+---
+
 # Balance outstanding promises by owner
 
 Read CLAUDE.md first. Run:
